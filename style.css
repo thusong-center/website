@@ -1,0 +1,9 @@
+/* Example extra CSS */
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+}
+img {
+  max-width: 100%;
+  border-radius: 12px;
+}
