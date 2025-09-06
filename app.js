@@ -1,4 +1,4 @@
-const { BrowserRouter, Routes, Route, Link, useLocation } = ReactRouterDOM;
+const { HashRouter, Routes, Route, Link, useLocation } = ReactRouterDOM;
 const { motion, AnimatePresence } = window['framer-motion'];
 
 function App() {
@@ -161,7 +161,7 @@ function Contact() {
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <BrowserRouter>
+  <HashRouter>
     <App />
-  </BrowserRouter>
+  </HashRouter>
 );
