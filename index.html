@@ -1,25 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Thusong Youth Centre</title>
-    <!-- Tailwind CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- React & ReactDOM from CDN -->
-    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
-    <!-- React Router -->
-    <script src="https://unpkg.com/react-router-dom@6/umd/react-router-dom.development.js" crossorigin></script>
-    <!-- Framer Motion -->
-    <script src="https://unpkg.com/framer-motion/dist/framer-motion.umd.js"></script>
-    <!-- TSParticles -->
-    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
-  </head>
-  <body class="bg-gradient-to-b from-indigo-50 to-white text-gray-800">
-    <div id="root"></div>
-    <!-- Your app script -->
-    <script src="app.js"></script>
-  </body>
-</html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thusong Youth Centre - Home</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
+</head>
+<body>
+  <div id="tsparticles"></div>
 
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="logo">TY</div>
+      <span class="title">Thusong Youth Centre</span>
+      <div class="links">
+        <a href="index.html" class="active">Home</a>
+        <a href="about.html">About</a>
+        <a href="programs.html">Programs</a>
+        <a href="objectives.html">Objectives</a>
+        <a href="donate.html">Donate</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Home Content -->
+  <section class="content">
+    <h1 class="text-4xl font-extrabold mb-4">Welcome to Thusong Youth Centre</h1>
+    <p class="max-w-2xl mx-auto text-lg text-gray-700">
+      Empowering Alexandra youth since 1979 through arts, sports, education, and community development.
+    </p>
+    <div class="mt-6">
+      <img src="images/hero.jpg" alt="Youth Centre" class="rounded-2xl shadow mx-auto max-h-96 object-cover">
+    </div>
+  </section>
+
+  <footer class="footer">© <span id="year"></span> Thusong Youth Centre • NPO Reg: 006-155-NPO</footer>
+  <script src="script.js"></script>
+</body>
+</html>
