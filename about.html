@@ -1,24 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About Us - Thusong Youth Centre</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About — Thusong Youth Centre</title>
+  <link rel="stylesheet" href="style.css"/>
   <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
 </head>
 <body>
   <div id="tsparticles"></div>
 
-  <!-- Navbar -->
   <nav class="navbar">
     <div class="nav-container">
-      <div class="logo">TY</div>
-      <span class="title">Thusong Youth Centre</span>
+      <div class="brand">
+        <a href="index.html" class="logo"><img src="images/logo-placeholder.png" alt="Thusong Youth Centre logo"/></a>
+        <span class="title">Thusong Youth Centre</span>
+      </div>
       <div class="links">
         <a href="index.html">Home</a>
-        <a href="about.html" class="active">About</a>
+        <a class="active" href="about.html">About</a>
         <a href="programs.html">Programs</a>
         <a href="objectives.html">Objectives</a>
         <a href="donate.html">Donate</a>
@@ -27,20 +27,36 @@
     </div>
   </nav>
 
-  <!-- About Content -->
-  <section class="content">
-    <h2 class="text-3xl font-bold mb-4">About Us</h2>
-    <p class="mb-3">Founded in 1979, Thusong Youth Centre is a joint initiative between Alexandra Township and Sandton communities.</p>
-    <h3 class="text-xl font-semibold mt-4">Mission</h3>
-    <p class="mb-3">To capacitate, enhance and develop disadvantaged youth through training and skills development.</p>
-    <h3 class="text-xl font-semibold mt-4">Vision</h3>
-    <p>To develop individual skills, self-esteem, initiative, and education for a brighter future.</p>
-    <div class="mt-6">
-      <img src="images/about.jpg" alt="About Thusong" class="rounded-2xl shadow max-h-80 object-cover">
+  <header class="hero">
+    <div class="inner">
+      <h1>About Thusong Youth Centre</h1>
+      <p>Established in 1979 as a joint project of Alexandra and Sandton residents, serving youth with training, recreation, and culture.</p>
     </div>
-  </section>
+  </header>
 
-  <footer class="footer">© <span id="year"></span> Thusong Youth Centre • NPO Reg: 006-155-NPO</footer>
+  <main class="section">
+    <h2 class="text-royalblue text-2xl font-extrabold">Mission</h2>
+    <p>We capacitate and develop disadvantaged youth through training, skills development, and holistic programs that build confidence, leadership, and opportunity.</p>
+
+    <h2 class="text-royalblue text-2xl font-extrabold mt-8">Vision</h2>
+    <p>To develop individual skills, self‑esteem, initiative, and education — enabling young people to thrive and contribute to a healthy community.</p>
+
+    <h2 class="text-royalblue text-2xl font-extrabold mt-8">Aims and objectives</h2>
+    <ul class="list-disc pl-6 mt-2">
+      <li>Supportive recreational and cultural facilities for youth.</li>
+      <li>Promote education, responsibility, and community spirit.</li>
+      <li>Establish leadership and welfare training facilities.</li>
+      <li>Advance spiritual, educational, physical, and social welfare.</li>
+      <li>Represent and sponsor the needs and voices of young people.</li>
+    </ul>
+  </main>
+
+  <footer class="footer">
+    © <span id="year"></span> Thusong Youth Centre • NPO Reg: 006-155-NPO
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
+
