@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Donate — Thusong Youth Centre</title>
+  <link rel="stylesheet" href="style.css"/><script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+  <div id="tsparticles"></div>
+
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="brand">
+        <a href="index.html" class="logo"><img src="images/logo-placeholder.png" alt="Thusong Youth Centre logo"/></a>
+        <span class="title">Thusong Youth Centre</span>
+      </div>
+      <div class="links">
+        <a href="index.html">Home</a><a href="about.html">About</a><a href="programs.html">Programs</a>
+        <a href="objectives.html">Objectives</a><a class="active" href="donate.html">Donate</a><a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero"><div class="inner">
+    <h1>Donate and partner with us</h1>
+    <p>Your support powers youth programs, clean streets, and safe spaces in Alexandra.</p>
+  </div></header>
+
+  <main class="section">
+    <div class="card">
+      <div class="body">
+        <h3 class="font-bold text-xl">Bank details</h3>
+        <p><strong>Bank:</strong> First National Bank (FNB)</p>
+        <p><strong>Account holder:</strong> Thusong Youth Centre</p>
+        <p><strong>Account no:</strong> 50300065915</p>
+        <p><strong>Account type:</strong> Cheque</p>
+        <p><strong>Branch code:</strong> 250655</p>
+
+        <button class="button mt-3" onclick="copyBankDetails()">Copy details</button>
+        <span id="copyMsg" class="copy-note">Copied!</span>
+      </div>
+    </div>
+
+    <div class="card mt-6">
+      <div class="body">
+        <h3 class="font-bold text-xl">Sponsor visibility</h3>
+        <p>We acknowledge sponsors on-site signage, PR events, and media — plus regular radio and local newspaper exposure.</p>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">© <span id="year"></span> Thusong Youth Centre • NPO Reg: 006-155-NPO</footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
