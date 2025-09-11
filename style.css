@@ -1,22 +1,54 @@
-.navbar { background: rgba(255,255,255,0.8); backdrop-filter: blur(8px); position: sticky; top: 0; z-index: 10; box-shadow: 0 2px 5px rgba(0,0,0,0.1);}
-.nav-container { max-width: 1200px; margin: auto; padding: 1rem; display: flex; align-items: center; justify-content: space-between;}
-.logo { width: 40px; height: 40px; border-radius: 8px; background: linear-gradient(to bottom right,#4f46e5,#9333ea); color: white; display: flex; align-items: center; justify-content: center; font-weight: bold;}
-.title { font-weight: bold; margin-left: 10px;}
-.links a { margin-left: 1rem; font-weight: 600; color: #374151; text-decoration: none;}
-.links a.active { color: #4f46e5; }
-.content { max-width: 1000px; margin: auto; padding: 4rem 1rem;}
-.footer { background: rgba(255,255,255,0.7); margin-top: 2rem; padding: 1rem; text-align: center; font-size: 0.9rem; color: #4b5563;}
-html { scroll-behavior: smooth; }
-:root {
-  --royalblue: #4169E1;
+.navbar { background: rgba(255,255,255,0.8); backdrop-filter: blur(8px); position: sticky; top: 0; z-index: 10; box-shadow: 0 2px 5px rgba(0,0,0,0.1);} .nav-container { max-width: 1200px; margin: auto; padding: 1rem; display: flex; align-items: center; justify-content: space-between;} .logo { width: 40px; height: 40px; border-radius: 8px; background: linear-gradient(to bottom right,#4f46e5,#9333ea); color: white; display: flex; align-items: center; justify-content: center; font-weight: bold;} .title { font-weight: bold; margin-left: 10px;} .links a { margin-left: 1rem; font-weight: 600; color: #374151; text-decoration: none;} .links a.active { color: #4f46e5; } .content { max-width: 1000px; margin: auto; padding: 4rem 1rem;} .footer { background: rgba(255,255,255,0.7); margin-top: 2rem; padding: 1rem; text-align: center; font-size: 0.9rem; color: #4b5563;} html { scroll-behavior: smooth; }
+/* Our Impact in Action Section */
+.impact-section {
+  max-width: 1200px;
+  margin: 4rem auto;
+  padding: 2rem 1rem;
+  text-align: center;
+  position: relative;
 }
 
-.bg-royalblue {
-  background-color: var(--royalblue);
+.impact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
 }
 
-.text-royalblue {
-  color: var(--royalblue);
+.impact-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  padding: 1.5rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
+
+.impact-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.12);
+}
+
+.video-thumbnail {
+  background: black;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+}
+
+.video-thumbnail img {
+  width: 100%;
+  display: block;
+}
+
+.video-thumbnail::after {
+  content: "▶";
+  font-size: 3rem;
+  color: red;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 
 
