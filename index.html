@@ -1,62 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Thusong Youth Centre - Home</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Thusong Youth Centre — Home</title>
+  <link rel="stylesheet" href="style.css"/>
   <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
 </head>
-<body class="bg-white text-gray-800 relative">
+<body>
+  <div id="tsparticles"></div>
 
-  <!-- Particle Background -->
-  <div id="tsparticles" class="absolute inset-0 -z-10"></div>
-
-  <!-- Navbar -->
-  <nav class="bg-royalblue text-white shadow-lg">
-    <div class="container mx-auto flex justify-between items-center p-4">
-      <div class="flex items-center space-x-3">
-        <div class="logo">
-  <img src="images/logo-placeholder.png" alt="Thusong Youth Centre Logo">
-<span class="font-bold text-lg">Thusong Youth Centre</span>
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="brand">
+        <a href="index.html" class="logo"><img src="images/logo-placeholder.png" alt="Thusong Youth Centre logo" /></a>
+        <span class="title">Thusong Youth Centre</span>
       </div>
-      <div class="space-x-4">
-        <a href="index.html" class="hover:underline">Home</a>
-        <a href="about.html" class="hover:underline">About</a>
-        <a href="programs.html" class="hover:underline">Programs</a>
-        <a href="objectives.html" class="hover:underline">Objectives</a>
-        <a href="donate.html" class="hover:underline">Donate</a>
-        <a href="contact.html" class="hover:underline">Contact</a>
+      <div class="links">
+        <a class="active" href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="programs.html">Programs</a>
+        <a href="objectives.html">Objectives</a>
+        <a href="donate.html">Donate</a>
+        <a href="contact.html">Contact</a>
       </div>
     </div>
   </nav>
 
-  <!-- Hero Section -->
-  <section class="text-center py-16 bg-royalblue text-white">
-    <h1 class="text-5xl font-extrabold mb-4">A Pillar of Strength for Alexandra’s Youth</h1>
-    <p class="max-w-2xl mx-auto text-lg">
-      Thusong Youth Centre is a registered NPO dedicated to empowering young people through innovative programs — from cleaning the streets to creating opportunities in arts, sports, and education.
-    </p>
-  </section>
-
-  <!-- Gallery / Sponsor Engagement -->
-  <section class="py-12 container mx-auto">
-    <h2 class="text-3xl font-bold text-royalblue mb-6 text-center">Our Impact in Action</h2>
-    <div class="grid md:grid-cols-3 gap-6">
-      <div class="aspect-w-16 aspect-h-9">
-        <iframe src="https://www.youtube.com/embed/VIDEO_ID" class="w-full h-full rounded-lg shadow"></iframe>
-      </div>
-      <img src="images/community1.jpg" alt="Community Cleanup" class="rounded-lg shadow">
-      <img src="images/youth_program.jpg" alt="Youth Program" class="rounded-lg shadow">
+  <header class="hero">
+    <div class="inner">
+      <h1>A pillar of strength for Alexandra’s youth</h1>
+      <p>Registered NPO (006-155-NPO) empowering children and youth through training, sports, recreation, and arts & culture — building safer streets and brighter futures in Alexandra.</p>
     </div>
-  </section>
+  </header>
 
-  <!-- Footer -->
-  <footer class="bg-royalblue text-white text-center py-4">
-    © <span id="1979"></span> Thusong Youth Centre • NPO Reg: 006-155-NPO
+  <main class="section">
+    <h2 class="text-royalblue text-3xl font-extrabold text-center">Our impact in action</h2>
+    <div class="impact-grid">
+      <div class="card">
+        <div class="video">
+          <iframe src="https://www.youtube.com/embed/VIDEO_ID" title="Thusong highlights"></iframe>
+        </div>
+        <div class="body">
+          <h3 class="font-bold">Sponsor highlight reel</h3>
+          <p>See our programs in motion — youth, community cleanups, arts, sports, and dialogue circles.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="images/community-cleanup.jpg" alt="Community cleanup in Alexandra" />
+        <div class="body">
+          <h3 class="font-bold">Community cleanup</h3>
+          <p>Mobilizing youth to keep Alexandra’s streets clean while building teamwork and leadership.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="images/youth-program.jpg" alt="Youth program activities" />
+        <div class="body">
+          <h3 class="font-bold">Youth programs</h3>
+          <p>Arts, culture, sports, and education that keep kids engaged and off the streets.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="stats">
+      <div class="stat">
+        <div class="num">6000+</div>
+        <div>Children reading and writing</div>
+      </div>
+      <div class="stat">
+        <div class="num">500+</div>
+        <div>Youth engaged</div>
+      </div>
+      <div class="stat">
+        <div class="num">600+</div>
+        <div>Adults reached</div>
+      </div>
+      <div class="stat">
+        <div class="num">1979</div>
+        <div>Serving Alexandra since</div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    © <span id="year"></span> Thusong Youth Centre • NPO Reg: 006-155-NPO
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
