@@ -24,11 +24,16 @@ Branch code: 250655`;
 
 // Particles background
 tsParticles.load("tsparticles", {
+  background: { color: "transparent" },
   particles: {
-    number: { value: 40 },
-    move: { enable: true, speed: 1 },
-    size: { value: { min: 2, max: 5 } },
-    color: { value: ["#6d28d9", "#8b5cf6", "#60a5fa"] },
+    number: { value: 80 },
+    size: { value: 3 },
+    move: { enable: true, speed: 2 },
+    color: { value: ["#FF0000", "#FF7F00", "#FFFF00", "#00FF00", "#0000FF", "#4B0082", "#8B00FF"] },
+    links: { enable: false }
   },
-  interactivity: { events: { onHover: { enable: true, mode: "repulse" } } },
+  interactivity: {
+    events: { onhover: { enable: true, mode: "repulse" } }
+  }
 });
+document.getElementById("year").textContent = new Date().getFullYear();
