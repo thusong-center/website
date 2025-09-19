@@ -58,3 +58,19 @@ body { background: #ffffff; color: #1f2937; font-family: ui-sans-serif, system-u
 /* Donate helper */
 .copy-note { display: none; color: #16a34a; font-weight: 700; margin-top: 0.5rem; }
 .copy-note.show { display: inline-block; }
+/* Apply to the whole page */
+body {
+  margin: 0;
+  height: 100vh;
+  background: linear-gradient(270deg, red, orange, yellow, green, blue, indigo, violet);
+  background-size: 1400% 1400%;
+  animation: rainbow 15s ease infinite;
+}
+
+/* Keyframes for smooth rainbow movement */
+@keyframes rainbow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
