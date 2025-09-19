@@ -1,5 +1,5 @@
 /* Theme and layout */
-:root { --royalblue: #4169E1; }
+:root { --tranparent; }
 html { scroll-behavior: smooth; }
 body { background: #ffffff; color: #1f2937; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; }
 
@@ -9,13 +9,13 @@ body { background: #ffffff; color: #1f2937; font-family: ui-sans-serif, system-u
 .brand { display: flex; align-items: center; gap: 10px; }
 .logo { width: 40px; height: 40px; border-radius: 8px; overflow: hidden; display: flex; align-items: center; justify-content: center; background: #fff; }
 .logo img { width: 100%; height: 100%; object-fit: cover; }
-.title { font-weight: 800; letter-spacing: 0.2px; color: var(--royalblue); }
+.title { font-weight: 800; letter-spacing: 0.2px; color: var(--tranparent); }
 .links a { margin-left: 1rem; font-weight: 600; color: #374151; text-decoration: none; }
-.links a:hover { color: var(--royalblue); }
-.links a.active { color: var(--royalblue); text-decoration: underline; text-underline-offset: 4px; }
+.links a:hover { color: var(--transparent); }
+.links a.active { color: var(--tranparent); text-decoration: underline; text-underline-offset: 4px; }
 
 /* Hero */
-.hero { background: var(--royalblue); color: white; text-align: center; padding: 5rem 1rem; position: relative; overflow: hidden; }
+.hero { background: var(--transparent);-color: white; text-align: center; padding: 5rem 1rem; position: relative; overflow: hidden; }
 .hero .inner { max-width: 1000px; margin: 0 auto; }
 .hero h1 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 900; }
 .hero p { margin-top: 1rem; opacity: 0.95; }
@@ -36,15 +36,15 @@ body { background: #ffffff; color: #1f2937; font-family: ui-sans-serif, system-u
 
 /* Stats */
 .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; margin-top: 2rem; }
-.stat { background: #f8fafc; border: 1px solid #eef2f7; border-radius: 12px; padding: 1rem; text-align: center; }
-.stat .num { color: var(--royalblue); font-size: 1.75rem; font-weight: 800; }
+.stat { background: tranparent; border: 1px solid none; border-radius: 12px; padding: 1rem; text-align: center; }
+.stat .num { color: var(--white); font-size: 1.75rem; font-weight: 800; }
 
 /* Footer */
-.footer { background: rgba(255,255,255,0.8); margin-top: 2rem; padding: 1rem; text-align: center; font-size: 0.95rem; color: #334155; border-top: 1px solid #e5e7eb; }
+.footer { background: transparent margin-top: 2rem; padding: 1rem; text-align: center; font-size: 0.95rem; color: #334155; border-top: none; }
 
 /* Util */
-.bg-royalblue { background-color: var(--royalblue); }
-.text-royalblue { color: var(--royalblue); }
+.bg-royalblue { background-color: var(--transparent); }
+.text-royalblue { color: var(--white); }
 
 /* Particles container (sits behind content) */
 #tsparticles { position: fixed; inset: 0; z-index: -1; }
