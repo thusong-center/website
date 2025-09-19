@@ -25,7 +25,7 @@ body { background: white; color: white; font-family: ui-sans-serif, system-ui, -
 
 /* Impact grid */
 .impact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 1.5rem; }
-.card { background: white; border-radius: 14px; box-shadow: 0 8px 24px rgba(0,0,0,0.08); overflow: hidden; transition: transform 0.2s ease, box-shadow 0.2s ease; }
+.card { background: white; border-radius: 14px; box-shadow: 0 8px 24px transparent; overflow: hidden; transition: transform 0.2s ease, box-shadow 0.2s ease; }
 .card:hover { transform: translateY(-4px); box-shadow: 0 12px 28px rgba(0,0,0,0.12); }
 .card .body { padding: 1rem 1rem 1.25rem; }
 .card h3 { color: var(--royalblue); margin-bottom: 0.25rem; }
