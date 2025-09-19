@@ -1,7 +1,7 @@
 /* Theme and layout */
 :root { --tranparent; }
 html { scroll-behavior: smooth; }
-body { background: #ffffff; color: #1f2937; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; }
+body { background: white; color: white; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; }
 
 /* Navbar */
 .navbar { background: transparent; backdrop-filter: blur(8px); position: sticky; top: 0; z-index: 50; box-shadow: 0 2px 5px rgba(0,0,0,0.1);}
