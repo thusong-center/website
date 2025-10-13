@@ -3,6 +3,25 @@ document.addEventListener("DOMContentLoaded", () => {
   // Footer year
   document.querySelectorAll("#year").forEach(el => {
     el.textContent = new Date().getFullYear();
+    document.addEventListener("DOMContentLoaded", () => {
+  const hexagons = document.querySelectorAll('.hexagon-slideshow .hexagon');
+  let current = 0;
+
+  function showHexagon(n) {
+    hexagons.forEach((hex, i) => {
+      hex.classList.toggle('active', i === n);
+    });
+  }
+
+  function nextHexagon() {
+    current = (current + 1) % hexagons.length;
+    showHexagon(current);
+  }
+
+  showHexagon(current); // Show first hexagon
+
+  setInterval(nextHexagon, 3000); // Change slide every 3 seconds
+});
   });
 
   // Particles background (rainbow theme)
