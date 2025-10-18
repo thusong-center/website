@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Programs — Thusong Youth Centre</title>
-  <link rel="stylesheet" href="style.css"/><script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css"/>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
   <div id="tsparticles"></div>
@@ -15,60 +16,84 @@
         <span class="title">Thusong Youth Centre</span>
       </div>
       <div class="links">
-        <a href="index.html">Home</a><a href="about.html">About</a>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
         <a class="active" href="programs.html">Programs</a>
-        <a href="objectives.html">Objectives</a><a href="donate.html">Donate</a><a href="contact.html">Contact</a>
+        <a href="objectives.html">Objectives</a>
+        <a href="donate.html">Donate</a>
+        <a href="contact.html">Contact</a>
       </div>
     </div>
   </nav>
 
-  <header class="hero"><div class="inner">
-    <h1>Programs that change lives</h1>
-    <p>Arts & culture, sports & recreation, dialogue circles, parolee support, and homework facilities — meeting youth where they are.</p>
-  </div></header>
+  <header class="hero">
+    <div class="inner">
+      <h1>Programs that change lives</h1>
+      <p>Arts & culture, sports & recreation, dialogue circles, parolee support, and homework facilities — meeting youth where they are.</p>
+    </div>
+  </header>
 
   <main class="section">
     <div class="impact-grid">
       <div class="card">
         <img src="images/arts-culture.jpg" alt="Arts and culture activities"/>
         <div class="body">
-          <h3 style="color:black" class="font-bold">Arts & culture</h3>
-          <p style="color:black;">Drama/acting, traditional and contemporary dance, pottery, and music — engaging talents and offering safe alternatives to crime.</p>
+          <h3 class="font-bold text-black">
+            <a href="arts-culture.html" style="color:black; text-decoration:underline;">Arts & culture</a>
+          </h3>
+          <p class="text-black">Drama/acting, traditional and contemporary dance, pottery, and music — engaging talents and offering safe alternatives to crime.</p>
         </div>
       </div>
+
       <div class="card">
         <img src="images/sports.jpg" alt="Sports and recreation"/>
         <div class="body">
-          <h3 style="color:black" class="font-bold">Sports & recreation</h3>
-          <p style="color:black;">Squash, judo, fitness, and aerobics — accessible, healthy activities for adults, youth, women, and children.</p>
+          <h3 class="font-bold text-black">
+            <a href="sports-recreation.html" style="color:black; text-decoration:underline;">Sports & recreation</a>
+          </h3>
+          <p class="text-black">Squash, judo, fitness, and aerobics — accessible, healthy activities for adults, youth, women, and children.</p>
         </div>
       </div>
+
       <div class="card">
         <img src="images/dialogue.jpg" alt="Dialogue circle"/>
         <div class="body">
-          <h3 style="color:black" class="font-bold">Dialogue circle</h3>
-          <p style="color:black;">Community dialogues with youth, parents, volunteers, and NGOs — addressing GBV, substance abuse, mental health, bullying, and more.</p>
+          <h3 class="font-bold text-black">
+            <a href="dialogue-circle.html" style="color:black; text-decoration:underline;">Dialogue circle</a>
+          </h3>
+          <p class="text-black">Community dialogues with youth, parents, volunteers, and NGOs — addressing GBV, substance abuse, mental health, bullying, and more.</p>
         </div>
       </div>
+
       <div class="card">
         <img src="images/parolee.jpg" alt="Parolees program"/>
         <div class="body">
-          <h3 style="color:black" class="font-bold">Parolees & former incarcerated</h3>
-          <p style="color:black;">With Randburg Correctional Service and partners, we support rehabilitation, community service, mediation, and job readiness.</p>
+          <h3 class="font-bold text-black">
+            <a href="parolees-support.html" style="color:black; text-decoration:underline;">Parolees & former incarcerated</a>
+          </h3>
+          <p class="text-black">With Randburg Correctional Service and partners, we support rehabilitation, community service, mediation, and job readiness.</p>
         </div>
       </div>
+
       <div class="card">
         <img src="images/homework.jpg" alt="Homework facilities"/>
         <div class="body">
-          <h3 style="color:black" class="font-bold">Homework facilities</h3>
-          <p style="color:black;">Volunteers help learners read and write; over 6000 kids in Alexandra can now read and write through our efforts.</p>
+          <h3 class="font-bold text-black">
+            <a href="homework.html" style="color:black; text-decoration:underline;">Homework facilities</a>
+          </h3>
+          <p class="text-black">Volunteers help learners read and write; over 6000 kids in Alexandra can now read and write through our efforts.</p>
         </div>
       </div>
     </div>
   </main>
 
-  <footer class="footer">© <span id="year"></span> Thusong Youth Centre • NPO Reg: 006-155-NPO</footer>
+  <footer class="footer">
+    © <span id="year"></span> Thusong Youth Centre • NPO Reg: 006-155-NPO
+  </footer>
 
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
   <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
   <script src="script.js"></script>
 </body>
