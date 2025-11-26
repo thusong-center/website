@@ -1,121 +1,440 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Thusong Youth Centre — Home</title>
-  <link rel="stylesheet" href="style.css" />
-  <script src="https://cdn.tailwindcss.com"></script>
-
+  <meta name="description" content="Thusong Youth Centre — programs, initiatives, and community impact." />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
   <style>
-    .hexagon-slideshow {
-      display: flex;
-      justify-content: center;
-      margin: 2rem 0;
+    :root {
+      --brand-fg: #0b0b0d;
+      --brand-muted: #5b5f69;
+      --brand-border: rgba(255,255,255,0.18);
+      --panel-bg: rgba(255,255,255,0.85);
+      --panel-blur: blur(8px);
+      --maxw: 1200px;
+      --gap: 16px;
+      --radius: 14px;
     }
-    .hexagon {
-      width: 200px;
-      height: 173px;
-      background-size: cover;
-      background-position: center;
-      background-color: #ddd; /* fallback */
-      clip-path: polygon(25% 6.7%, 75% 6.7%, 100% 50%, 
-                         75% 93.3%, 25% 93.3%, 0% 50%);
-      transition: background-image 1s ease-in-out;
+
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      color: var(--brand-fg);
+      overflow-x: hidden;
+      position: relative;
+      background: linear-gradient(270deg,
+        #ff595e, #ffca3a, #8ac926, #1982c4, #6a4c93, #ff595e);
+      background-size: 1200% 1200%;
+      animation: rainbow 28s ease infinite;
     }
-    .stats {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 2rem;
-      margin: 3rem 0;
+    @keyframes rainbow {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100%{ background-position: 0% 50%; }
     }
+
+    /* Particles layer */
+    #tsparticles {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    /* Frosted overlay for content readability */
+    .frost {
+      backdrop-filter: saturate(1.2) blur(14px);
+      background: rgba(255,255,255,0.35);
+    }
+
+    .container { max-width: var(--maxw); margin-inline: auto; padding-inline: 20px; }
+
+    /* Header / nav */
+    .header {
+      position: sticky; top: 0; z-index: 20;
+      backdrop-filter: blur(8px);
+      background: rgba(255,255,255,0.55);
+      border-bottom: 1px solid var(--brand-border);
+    }
+    .nav {
+      display: flex; align-items: center; gap: 16px; height: 72px;
+    }
+    .nav__brand { display: flex; align-items: center; gap: 12px; color: #0f172a; font-weight: 700; }
+    .nav__logo { width: 36px; height: 36px; border-radius: 8px; overflow: hidden; background: #ffffff; box-shadow: 0 2px 10px rgba(0,0,0,0.12); display: grid; place-items: center; }
+    .nav__logo img { width: 90%; height: 90%; object-fit: contain; }
+    .nav__links { display: none; gap: 18px; margin-left: auto; align-items: center; }
+    .nav__link { padding: 8px 12px; border-radius: 10px; color: #0f172a; }
+    .nav__link--active { background: rgba(255,255,255,0.7); }
+
+    /* Dropdown menus */
+    .menu { position: relative; }
+    .menu__button {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 8px 12px; border-radius: 10px; background: rgba(255,255,255,0.7);
+      border: 1px solid rgba(15, 23, 42, 0.08); color: #0f172a;
+    }
+    .menu__button:focus { outline: 2px solid #0ea5e9; outline-offset: 2px; }
+    .menu__panel {
+      position: absolute; left: 0; top: calc(100% + 10px);
+      width: min(840px, calc(100vw - 40px));
+      display: none;
+      padding: 16px; border-radius: var(--radius);
+      background: var(--panel-bg);
+      backdrop-filter: var(--panel-blur);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+      border: 1px solid var(--brand-border);
+    }
+    .menu[aria-expanded="true"] .menu__panel {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;
+    }
+    .menu__section h4 { margin: 0 0 8px; font-size: 14px; color: var(--brand-muted); }
+    .menu__item { display: block; padding: 10px; border-radius: 10px; color: #0f172a; }
+    .menu__item:hover { background: rgba(255,255,255,0.7); }
+
+    /* Mobile */
+    .nav__toggle {
+      margin-left: auto; padding: 8px 12px; border-radius: 10px;
+      border: 1px solid rgba(15,23,42,0.1); background: rgba(255,255,255,0.75);
+    }
+    .drawer {
+      position: fixed; inset: 0 0 0 auto; width: 320px; z-index: 30;
+      transform: translateX(100%); transition: transform .25s ease;
+      background: rgba(255,255,255,0.9); backdrop-filter: blur(8px);
+      border-left: 1px solid var(--brand-border);
+      display: flex; flex-direction: column; gap: 6px; padding: 16px;
+    }
+    .drawer--open { transform: translateX(0); }
+    .drawer__group h4 { margin: 10px 0 6px; color: var(--brand-muted); }
+    .drawer__link { display: block; padding: 10px; border-radius: 10px; color: #0f172a; }
+    .drawer__link:hover { background: rgba(255,255,255,0.7); }
+
+    /* Hero carousel */
+    .hero { padding: 28px 0; }
+    .hero__wrap { position: relative; overflow: hidden; border-radius: 18px; }
+    .hero__slides { display: grid; grid-auto-flow: column; grid-auto-columns: 100%; transition: transform .6s ease; }
+    .hero__slide {
+      min-height: 420px; display: grid; grid-template-columns: 1.1fr .9fr; align-items: center; gap: 20px; padding: 28px;
+      background: rgba(255,255,255,0.65); backdrop-filter: blur(8px);
+    }
+    .hero__content h1 { font-size: 40px; margin: 0 0 12px; color: #0f172a; }
+    .hero__content p { color: #334155; margin: 0 0 16px; }
+    .hero__action { display: inline-flex; gap: 10px; }
+    .btn { padding: 10px 14px; border-radius: 12px; font-weight: 600; }
+    .btn--primary { background: #2563eb; color: #fff; }
+    .btn--ghost { border: 1px solid rgba(15,23,42,0.18); color: #0f172a; background: rgba(255,255,255,0.6); }
+
+    .hero__media { position: relative; border-radius: 14px; overflow: hidden; background: #0f172a; min-height: 260px; }
+    .hero__media img { width: 100%; height: 100%; object-fit: cover; }
+
+    .hero__dots { position: absolute; bottom: 14px; left: 14px; display: flex; gap: 8px; }
+    .dot { width: 8px; height: 8px; border-radius: 999px; background: #64748b; cursor: pointer; border: 1px solid rgba(255,255,255,0.6); }
+    .dot--active { background: #ffffff; }
+
+    /* Stats */
+    .stats { display: flex; flex-wrap: wrap; justify-content: center; gap: 24px; padding: 28px 0; }
     .stat {
-      text-align: center;
+      text-align: center; padding: 16px 18px; border-radius: 14px;
+      background: rgba(255,255,255,0.55); backdrop-filter: blur(8px);
+      border: 1px solid var(--brand-border); min-width: 180px;
     }
-    .stat .num {
-      font-size: 2rem;
-      font-weight: bold;
-      color: #1d4ed8;
+    .stat .num { font-size: 30px; font-weight: 700; color: #0f172a; }
+    .stat .label { color: #334155; }
+
+    /* Footer */
+    .footer {
+      border-top: 1px solid var(--brand-border); padding: 30px 0;
+      background: rgba(255,255,255,0.55); backdrop-filter: blur(8px);
     }
-    footer.footer {
-      text-align: center;
-      padding: 1rem;
-      background: #f3f4f6;
-      font-size: 0.9rem;
+    .footer__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+    .footer__col h5 { margin: 0 0 8px; font-size: 14px; color: var(--brand-muted); }
+    .footer__link { display: block; padding: 6px 0; color: #0f172a; }
+    .footer__link:hover { text-decoration: underline; }
+
+    /* Responsive */
+    @media (max-width: 980px) {
+      .nav__links { display: none; }
+      .hero__slide { grid-template-columns: 1fr; min-height: 380px; }
+      .footer__grid { grid-template-columns: repeat(2, 1fr); }
+      .nav__toggle { display: inline-block; }
+    }
+    @media (min-width: 981px) {
+      .nav__links { display: flex; }
+      .nav__toggle, .drawer { display: none; }
+    }
+    @media (max-width: 640px) {
+      .footer__grid { grid-template-columns: 1fr; }
+      .hero__content h1 { font-size: 30px; }
     }
   </style>
 </head>
 <body>
-  <!-- Particle background container -->
+  <!-- Particles layer -->
   <div id="tsparticles"></div>
 
-  <!-- Navigation -->
-  <nav class="navbar">
-    <div class="nav-container">
-      <div class="brand">
-        <a href="index.html" class="logo">
+  <!-- Header -->
+  <header class="header" role="banner">
+    <div class="container nav" aria-label="Global navigation">
+      <a href="index.html" class="nav__brand" aria-label="Thusong home">
+        <span class="nav__logo">
+          <!-- Replace with your logo image -->
           <img src="logo.png" alt="Thusong Youth Centre logo" />
-        </a>
-        <span class="title">Thusong Youth Centre</span>
+        </span>
+        <span>Thusong Youth Centre</span>
+      </a>
+
+      <!-- Desktop links -->
+      <nav class="nav__links" role="navigation" aria-label="Primary">
+        <div class="menu" aria-expanded="false">
+          <button class="menu__button" aria-haspopup="true" aria-expanded="false" aria-controls="programs-panel">
+            Programs <span aria-hidden="true">▾</span>
+          </button>
+          <div id="programs-panel" class="menu__panel" role="menu">
+            <div class="menu__section">
+              <h4>Digital Literacy</h4>
+              <a class="menu__item" href="#">Beginner courses</a>
+              <a class="menu__item" href="#">Youth workshops</a>
+              <a class="menu__item" href="#">Community labs</a>
+            </div>
+            <div class="menu__section">
+              <h4>Career Support</h4>
+              <a class="menu__item" href="#">CV clinics</a>
+              <a class="menu__item" href="#">Interview coaching</a>
+              <a class="menu__item" href="#">Job fairs</a>
+            </div>
+            <div class="menu__section">
+              <h4>Creative Media</h4>
+              <a class="menu__item" href="#">Video production</a>
+              <a class="menu__item" href="#">Design sprints</a>
+              <a class="menu__item" href="#">Community stories</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu" aria-expanded="false">
+          <button class="menu__button" aria-haspopup="true" aria-expanded="false" aria-controls="about-panel">
+            About <span aria-hidden="true">▾</span>
+          </button>
+          <div id="about-panel" class="menu__panel" role="menu">
+            <div class="menu__section">
+              <h4>Who we are</h4>
+              <a class="menu__item" href="about.html">Mission</a>
+              <a class="menu__item" href="about.html">Team</a>
+              <a class="menu__item" href="about.html">Partners</a>
+            </div>
+            <div class="menu__section">
+              <h4>Impact</h4>
+              <a class="menu__item" href="#">Stories</a>
+              <a class="menu__item" href="#">Statistics</a>
+              <a class="menu__item" href="#">Reports</a>
+            </div>
+            <div class="menu__section">
+              <h4>Get involved</h4>
+              <a class="menu__item" href="#">Volunteer</a>
+              <a class="menu__item" href="#">Donate</a>
+              <a class="menu__item" href="#">Sponsor</a>
+            </div>
+          </div>
+        </div>
+
+        <a class="nav__link nav__link--active" href="index.html">Home</a>
+        <a class="nav__link" href="objectives.html">Objectives</a>
+        <a class="nav__link" href="contact.html">Contact</a>
+      </nav>
+
+      <!-- Mobile toggle -->
+      <button class="nav__toggle" aria-controls="mobile-drawer" aria-expanded="false">Menu</button>
+    </div>
+
+    <!-- Mobile drawer -->
+    <aside id="mobile-drawer" class="drawer" aria-hidden="true">
+      <div class="drawer__group">
+        <h4>Programs</h4>
+        <a class="drawer__link" href="#">Digital Literacy</a>
+        <a class="drawer__link" href="#">Career Support</a>
+        <a class="drawer__link" href="#">Creative Media</a>
       </div>
-      <div class="links">
-        <a class="active" href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="programs.html">Programs</a>
-        <a href="objectives.html">Objectives</a>
+      <div class="drawer__group">
+        <h4>About</h4>
+        <a class="drawer__link" href="about.html">Mission</a>
+        <a class="drawer__link" href="about.html">Team</a>
+        <a class="drawer__link" href="about.html">Impact</a>
+      </div>
+      <div class="drawer__group">
+        <h4>More</h4>
+        <a class="drawer__link" href="objectives.html">Objectives</a>
+        <a class="drawer__link" href="contact.html">Contact</a>
+      </div>
+    </aside>
+  </header>
+
+  <!-- Hero carousel -->
+  <section class="hero">
+    <div class="container hero__wrap" aria-roledescription="carousel" aria-label="Featured initiatives">
+      <div class="hero__slides" id="hero-slides">
+        <article class="hero__slide" aria-label="Digital skills for youth">
+          <div class="hero__content">
+            <h1>Digital skills for every young person</h1>
+            <p>Community-led training, devices, and mentorship to unlock opportunity in Johannesburg.</p>
+            <div class="hero__action">
+              <a class="btn btn--primary" href="#">Explore programs</a>
+              <a class="btn btn--ghost" href="#">See impact</a>
+            </div>
+          </div>
+          <div class="hero__media">
+            <img src="assets/images/hero1.jpg" alt="Youth learning in the lab" />
+          </div>
+        </article>
+
+        <article class="hero__slide" aria-label="Career pathways">
+          <div class="hero__content">
+            <h1>Career pathways with real support</h1>
+            <p>CV clinics, interview prep, and industry connections—built with local partners.</p>
+            <div class="hero__action">
+              <a class="btn btn--primary" href="#">Join a clinic</a>
+              <a class="btn btn--ghost" href="#">Partner with us</a>
+            </div>
+          </div>
+          <div class="hero__media">
+            <img src="assets/images/hero2.jpg" alt="Mentor guiding a session" />
+          </div>
+        </article>
+
+        <article class="hero__slide" aria-label="Creative media">
+          <div class="hero__content">
+            <h1>Creative media and community storytelling</h1>
+            <p>Produce videos, design campaigns, and share local stories that move people.</p>
+            <div class="hero__action">
+              <a class="btn btn--primary" href="#">Start creating</a>
+              <a class="btn btn--ghost" href="#">View showcase</a>
+            </div>
+          </div>
+          <div class="hero__media">
+            <img src="assets/images/hero3.jpg" alt="Youth filming with camera" />
+          </div>
+        </article>
+      </div>
+      <div class="hero__dots" role="tablist" aria-label="Carousel controls">
+        <button class="dot dot--active" aria-label="Slide 1"></button>
+        <button class="dot" aria-label="Slide 2"></button>
+        <button class="dot" aria-label="Slide 3"></button>
       </div>
     </div>
-  </nav>
+  </section>
 
-  <!-- Hexagon Slideshow -->
-  <div class="hexagon-slideshow">
-    <div class="hexagon" id="hexagon-slide"></div>
-  </div>
-
-  <!-- Stats Section -->
-  <section class="stats">
+  <!-- Stats -->
+  <section class="stats" aria-label="Key metrics">
     <div class="stat">
       <div class="num">120+</div>
-      <div>Active Members</div>
+      <div class="label">Active Members</div>
     </div>
     <div class="stat">
       <div class="num">15</div>
-      <div>Programs</div>
+      <div class="label">Programs</div>
     </div>
     <div class="stat">
       <div class="num">10</div>
-      <div>Years Running</div>
+      <div class="label">Years Running</div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="footer">
-    © 2025 Thusong Youth Centre. All rights reserved.
+  <footer class="footer" role="contentinfo">
+    <div class="container footer__grid">
+      <div class="footer__col">
+        <h5>Programs</h5>
+        <a class="footer__link" href="#">Digital Literacy</a>
+        <a class="footer__link" href="#">Career Support</a>
+        <a class="footer__link" href="#">Creative Media</a>
+      </div>
+      <div class="footer__col">
+        <h5>About</h5>
+        <a class="footer__link" href="about.html">Mission</a>
+        <a class="footer__link" href="about.html">Team</a>
+        <a class="footer__link" href="about.html">Impact</a>
+      </div>
+      <div class="footer__col">
+        <h5>Resources</h5>
+        <a class="footer__link" href="#">Curriculum</a>
+        <a class="footer__link" href="#">Toolkits</a>
+        <a class="footer__link" href="#">Reports</a>
+      </div>
+      <div class="footer__col">
+        <h5>Connect</h5>
+        <a class="footer__link" href="contact.html">Contact</a>
+        <a class="footer__link" href="#">Volunteer</a>
+        <a class="footer__link" href="#">Donate</a>
+      </div>
+    </div>
+    <div class="container" style="margin-top: 12px; color: #334155;">
+      © 2025 Thusong Youth Centre. All rights reserved.
+    </div>
   </footer>
 
-  <!-- Slideshow Script -->
   <script>
-    window.onload = function() {
-      const images = [
-        'image1.png',
-        'image2.png',
-        'image3.png',
-        'image4.png',
-        'image5.png'
-      ];
-      let current = 0;
-      const hex = document.getElementById('hexagon-slide');
+    // Helpers
+    const qs  = (s, r=document) => r.querySelector(s);
+    const qsa = (s, r=document) => Array.from(r.querySelectorAll(s));
 
-      function showNextImage() {
-        hex.style.backgroundImage = `url('${images[current]}')`;
-        current = (current + 1) % images.length;
-      }
+    // Desktop dropdown menus
+    qsa('.menu').forEach(menu => {
+      const btn = qs('.menu__button', menu);
+      const panel = qs('.menu__panel', menu);
+      function open() { menu.setAttribute('aria-expanded', 'true'); btn.setAttribute('aria-expanded', 'true'); }
+      function close(){ menu.setAttribute('aria-expanded', 'false'); btn.setAttribute('aria-expanded', 'false'); }
+      function toggle(){ (menu.getAttribute('aria-expanded') === 'true') ? close() : open(); }
 
-      showNextImage(); // show first image immediately
-      setInterval(showNextImage, 3000); // rotate every 3s
-    };
+      btn.addEventListener('click', toggle);
+      btn.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowDown') { open(); panel.querySelector('.menu__item')?.focus(); }
+        if (e.key === 'Escape') { close(); btn.focus(); }
+      });
+      panel.addEventListener('keydown', (e) => { if (e.key === 'Escape') { close(); btn.focus(); }});
+      document.addEventListener('click', (e) => { if (!menu.contains(e.target)) close(); });
+    });
+
+    // Mobile drawer
+    const toggle = qs('.nav__toggle');
+    const drawer = qs('#mobile-drawer');
+    toggle?.addEventListener('click', () => {
+      const open = drawer.classList.toggle('drawer--open');
+      toggle.setAttribute('aria-expanded', String(open));
+      drawer.setAttribute('aria-hidden', String(!open));
+    });
+
+    // Hero carousel
+    const slides = qs('#hero-slides');
+    const dots = qsa('.dot');
+    let idx = 0, timer;
+
+    function go(i) {
+      idx = i;
+      slides.style.transform = `translateX(-${i * 100}%)`;
+      dots.forEach((d, n) => d.classList.toggle('dot--active', n === i));
+    }
+    function next() { go((idx + 1) % dots.length); }
+    function play() { timer = setInterval(next, 5000); }
+    function pause() { clearInterval(timer); }
+
+    dots.forEach((dot, i) => dot.addEventListener('click', () => { pause(); go(i); play(); }));
+    qs('.hero__wrap').addEventListener('mouseenter', pause);
+    qs('.hero__wrap').addEventListener('mouseleave', play);
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') { pause(); next(); play(); }
+      if (e.key === 'ArrowLeft')  { pause(); go((idx - 1 + dots.length) % dots.length); play(); }
+    });
+    play();
+
+    // Minimal particles (placeholder): ensure your existing particles script initializes #tsparticles
+    // If you already have a particles config file, include it after this script.
+    // Example pseudo-init (replace with your working config):
+    // tsParticles.load("tsparticles", { /* your existing config */ });
   </script>
 </body>
 </html>
+
 
