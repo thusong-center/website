@@ -1,57 +1,100 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
-  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Donate — Thusong Youth Centre</title>
-  <link rel="stylesheet" href="style.css"/><script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    /* Paste the same CSS from index.html */
+    .donate-grid { display:grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .donate-card { border:1px solid rgba(255,255,255,0.18); border-radius:12px; background:#fff; padding:16px; }
+    .donate-amounts { display:flex; gap:10px; flex-wrap:wrap; margin:12px 0; }
+    .amount { padding:8px 12px; border:1px solid rgba(15,23,42,0.18); border-radius:10px; background:#fff; cursor:pointer; }
+    .amount--active { background:#2563eb; color:#fff; border-color:#2563eb; }
+    .input { width:100%; padding:10px 12px; border-radius:10px; border:1px solid rgba(15,23,42,0.18); background:#fff; }
+  </style>
 </head>
 <body>
   <div id="tsparticles"></div>
 
-  <nav class="navbar">
-    <div class="nav-container">
-      <div class="brand">
-        <a href="index.html" class="logo"><img src="logo.png" alt="Thusong Youth Centre logo"/></a>
-        <span class="title">Thusong Youth Centre</span>
+  <!-- Same header/nav; mark Donate active -->
+  <header class="header" role="banner">
+    <!-- Copy header/nav from index.html, with nav__link--active on Donate -->
+    <!-- ... -->
+  </header>
+
+  <section class="hero">
+    <div class="container" style="background: rgba(255,255,255,0.65); backdrop-filter: blur(8px); border-radius: 18px; padding: 28px;">
+      <h1 style="margin-top:0;">Donate to Thusong Youth Centre</h1>
+      <p>Your support sustains free programs, devices, and mentorship for youth in Johannesburg.</p>
+
+      <div class="donate-grid" style="margin-top:16px;">
+        <div class="donate-card">
+          <h3>One-time donation</h3>
+          <div class="donate-amounts" id="one-time-amounts">
+            <button class="amount" data-value="100">R100</button>
+            <button class="amount" data-value="250">R250</button>
+            <button class="amount" data-value="500">R500</button>
+            <button class="amount" data-value="1000">R1000</button>
+          </div>
+          <label>Custom amount
+            <input class="input" type="number" min="10" step="10" id="one-time-custom" placeholder="Enter amount (R)" />
+          </label>
+          <button class="btn btn--primary" style="margin-top:12px;">Donate once</button>
+        </div>
+
+        <div class="donate-card">
+          <h3>Monthly donation</h3>
+          <div class="donate-amounts" id="monthly-amounts">
+            <button class="amount" data-value="50">R50</button>
+            <button class="amount" data-value="100">R100</button>
+            <button class="amount" data-value="200">R200</button>
+            <button class="amount" data-value="500">R500</button>
+          </div>
+          <label>Custom monthly amount
+            <input class="input" type="number" min="20" step="10" id="monthly-custom" placeholder="Enter amount (R)" />
+          </label>
+          <button class="btn btn--primary" style="margin-top:12px;">Donate monthly</button>
+        </div>
+
+        <div class="donate-card">
+          <h3>Other ways to give</h3>
+          <ul>
+            <li>Devices (laptops, tablets, cameras)</li>
+            <li>Volunteer time (mentoring, workshops)</li>
+            <li>Sponsorship (program funding, events)</li>
+          </ul>
+          <a class="btn btn--ghost" href="contact.html" style="margin-top:12px;">Contact us</a>
+        </div>
       </div>
-      <div class="links">
-        <a href="index.html">Home</a><a href="about.html">About</a><a href="programs.html">Programs</a>
-        <a href="objectives.html">Objectives</a><a class="active" href="donate.html">Donate</a><a href="contact.html">Contact</a>
-      </div>
+
+      <p style="margin-top:16px; color:#334155;">Note: Integrate your payment gateway (e.g., PayFast, PayPal) by wiring the buttons to your backend or gateway links.</p>
     </div>
-  </nav>
+  </section>
 
-  <header class="hero"><div class="inner">
-    <h1>Donate and partner with us</h1>
-    <p>Your support powers youth programs, clean streets, and safe spaces in Alexandra.</p>
-  </div></header>
+  <!-- Same footer -->
+  <footer class="footer" role="contentinfo">
+    <!-- Copy footer from index.html -->
+  </footer>
 
-  <main class="section">
-    <div class="card">
-      <div class="body">
-        <h3 style="color:black" class="font-bold text-xl">Bank details</h3>
-        <p style="color:black;"><strong>Bank:</strong> First National Bank (FNB)</p>
-        <p style="color:black;"><strong>Account holder:</strong> Thusong Youth Centre</p>
-        <p style="color:black;"><strong>Account no:</strong> 50300065915</p>
-        <p style="color:black;"><strong>Account type:</strong> Cheque</p>
-        <p style="color:black;"><strong>Branch code:</strong> 250655</p>
-
-        <button style="color:black;" class="button mt-3" onclick="copyBankDetails()">Copy details</button>
-        <span id="copyMsg" class="copy-note">Copied!</span>
-      </div>
-    </div>
-
-    <div class="card mt-6">
-      <div class="body">
-        <h3 style="color:black" class="font-bold text-xl">Sponsor visibility</h3>
-        <p style="color:black;">We acknowledge sponsors on-site signage, PR events, and media — plus regular radio and local newspaper exposure.</p>
-      </div>
-    </div>
-  </main>
-
-  <footer class="footer">© <span id="year"></span> Thusong Youth Centre • NPO Reg: 006-155-NPO</footer>
-
-  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
-  <script src="script.js"></script>
+  <script>
+    /* Copy the same JS from index.html (dropdowns, drawer, particles init) */
+    function setupAmounts(groupId, customId) {
+      const group = document.getElementById(groupId);
+      const custom = document.getElementById(customId);
+      if (!group) return;
+      group.querySelectorAll('.amount').forEach(btn => {
+        btn.addEventListener('click', () => {
+          group.querySelectorAll('.amount').forEach(b => b.classList.remove('amount--active'));
+          btn.classList.add('amount--active');
+          if (custom) custom.value = btn.dataset.value;
+        });
+      });
+    }
+    setupAmounts('one-time-amounts', 'one-time-custom');
+    setupAmounts('monthly-amounts', 'monthly-custom');
+  </script>
 </body>
 </html>
