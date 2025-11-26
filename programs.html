@@ -1,100 +1,108 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
-  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Programs — Thusong Youth Centre</title>
-  <link rel="stylesheet" href="style.css"/>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    /* Paste the same CSS from index.html */
+  </style>
 </head>
 <body>
   <div id="tsparticles"></div>
 
-  <nav class="navbar">
-    <div class="nav-container">
-      <div class="brand">
-        <a href="index.html" class="logo"><img src="logo.png" alt="Thusong Youth Centre logo"/></a>
-        <span class="title">Thusong Youth Centre</span>
-      </div>
-      <div class="links">
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a class="active" href="programs.html">Programs</a>
-        <a href="objectives.html">Objectives</a>
-        <a href="donate.html">Donate</a>
-        <a href="contact.html">Contact</a>
-      </div>
+  <!-- Same header/nav as Home, set Programs active -->
+  <header class="header" role="banner">
+    <div class="container nav" aria-label="Global navigation">
+      <a href="index.html" class="nav__brand" aria-label="Thusong home">
+        <span class="nav__logo"><img src="logo.png" alt="Thusong Youth Centre logo" /></span>
+        <span>Thusong Youth Centre</span>
+      </a>
+      <nav class="nav__links" role="navigation" aria-label="Primary">
+        <!-- Menus identical to index.html -->
+        <div class="menu" aria-expanded="false">
+          <button class="menu__button" aria-haspopup="true" aria-expanded="false" aria-controls="programs-panel">Programs <span aria-hidden="true">▾</span></button>
+          <div id="programs-panel" class="menu__panel" role="menu">
+            <div class="menu__section"><h4>Digital Literacy</h4><a class="menu__item" href="programs.html">Beginner courses</a><a class="menu__item" href="programs.html">Youth workshops</a><a class="menu__item" href="programs.html">Community labs</a></div>
+            <div class="menu__section"><h4>Career Support</h4><a class="menu__item" href="programs.html">CV clinics</a><a class="menu__item" href="programs.html">Interview coaching</a><a class="menu__item" href="programs.html">Job fairs</a></div>
+            <div class="menu__section"><h4>Creative Media</h4><a class="menu__item" href="programs.html">Video production</a><a class="menu__item" href="programs.html">Design sprints</a><a class="menu__item" href="programs.html">Community stories</a></div>
+          </div>
+        </div>
+        <div class="menu" aria-expanded="false">
+          <button class="menu__button" aria-haspopup="true" aria-expanded="false" aria-controls="about-panel">About <span aria-hidden="true">▾</span></button>
+          <div id="about-panel" class="menu__panel" role="menu">
+            <div class="menu__section"><h4>Who we are</h4><a class="menu__item" href="about.html">Mission</a><a class="menu__item" href="about.html">Team</a><a class="menu__item" href="about.html">Partners</a></div>
+            <div class="menu__section"><h4>Impact</h4><a class="menu__item" href="about.html">Stories</a><a class="menu__item" href="about.html">Statistics</a><a class="menu__item" href="about.html">Reports</a></div>
+            <div class="menu__section"><h4>Get involved</h4><a class="menu__item" href="donate.html">Donate</a><a class="menu__item" href="contact.html">Volunteer</a><a class="menu__item" href="contact.html">Sponsor</a></div>
+          </div>
+        </div>
+        <a class="nav__link" href="index.html">Home</a>
+        <a class="nav__link" href="about.html">About</a>
+        <a class="nav__link nav__link--active" href="programs.html">Programs</a>
+        <a class="nav__link" href="objectives.html">Objectives</a>
+        <a class="nav__link" href="contact.html">Contact</a>
+        <a class="nav__link" href="donate.html">Donate</a>
+      </nav>
+      <button class="nav__toggle" aria-controls="mobile-drawer" aria-expanded="false">Menu</button>
     </div>
-  </nav>
-
-  <header class="hero">
-    <div class="inner">
-      <h1>Programs that change lives</h1>
-      <p>Arts & culture, sports & recreation, dialogue circles, parolee support, and homework facilities — meeting youth where they are.</p>
-    </div>
+    <aside id="mobile-drawer" class="drawer" aria-hidden="true">
+      <div class="drawer__group"><h4>Programs</h4><a class="drawer__link" href="programs.html">Digital Literacy</a><a class="drawer__link" href="programs.html">Career Support</a><a class="drawer__link" href="programs.html">Creative Media</a></div>
+      <div class="drawer__group"><h4>About</h4><a class="drawer__link" href="about.html">Mission</a><a class="drawer__link" href="about.html">Team</a><a class="drawer__link" href="about.html">Impact</a></div>
+      <div class="drawer__group"><h4>More</h4><a class="drawer__link" href="objectives.html">Objectives</a><a class="drawer__link" href="contact.html">Contact</a><a class="drawer__link" href="donate.html">Donate</a></div>
+    </aside>
   </header>
 
-  <main class="section">
-    <div class="impact-grid">
-      <div class="card">
-        <img src="images/arts-culture.jpg" alt="Arts and culture activities"/>
-        <div class="body">
-          <h3 class="font-bold text-black">
-            <a href="arts-culture.html" style="color:black; text-decoration:underline;">Arts & culture</a>
-          </h3>
-          <p class="text-black">Drama/acting, traditional and contemporary dance, pottery, and music — engaging talents and offering safe alternatives to crime.</p>
-        </div>
-      </div>
-
-      <div class="card">
-        <img src="images/sports.jpg" alt="Sports and recreation"/>
-        <div class="body">
-          <h3 class="font-bold text-black">
-            <a href="sports-recreation.html" style="color:black; text-decoration:underline;">Sports & recreation</a>
-          </h3>
-          <p class="text-black">Squash, judo, fitness, and aerobics — accessible, healthy activities for adults, youth, women, and children.</p>
-        </div>
-      </div>
-
-      <div class="card">
-        <img src="images/dialogue.jpg" alt="Dialogue circle"/>
-        <div class="body">
-          <h3 class="font-bold text-black">
-            <a href="dialogue-circle.html" style="color:black; text-decoration:underline;">Dialogue circle</a>
-          </h3>
-          <p class="text-black">Community dialogues with youth, parents, volunteers, and NGOs — addressing GBV, substance abuse, mental health, bullying, and more.</p>
-        </div>
-      </div>
-
-      <div class="card">
-        <img src="images/parolee.jpg" alt="Parolees program"/>
-        <div class="body">
-          <h3 class="font-bold text-black">
-            <a href="parolees-support.html" style="color:black; text-decoration:underline;">Parolees & former incarcerated</a>
-          </h3>
-          <p class="text-black">With Randburg Correctional Service and partners, we support rehabilitation, community service, mediation, and job readiness.</p>
-        </div>
-      </div>
-
-      <div class="card">
-        <img src="images/homework.jpg" alt="Homework facilities"/>
-        <div class="body">
-          <h3 class="font-bold text-black">
-            <a href="homework.html" style="color:black; text-decoration:underline;">Homework facilities</a>
-          </h3>
-          <p class="text-black">Volunteers help learners read and write; over 6000 kids in Alexandra can now read and write through our efforts.</p>
-        </div>
+  <section class="hero">
+    <div class="container" style="background: rgba(255,255,255,0.65); backdrop-filter: blur(8px); border-radius: 18px; padding: 28px;">
+      <h1 style="margin-top:0;">Our Programs</h1>
+      <p>We co-design programs with youth, educators, and local organizations to ensure relevance and impact.</p>
+      <div class="cards__grid" style="display:grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 16px;">
+        <article class="card" style="border:1px solid rgba(255,255,255,0.18); border-radius: 12px; overflow: hidden; background:#fff;">
+          <div class="card__media" style="aspect-ratio:16/9; background:#f3f4f6;">
+            <img src="assets/images/digital.jpg" alt="Digital Literacy">
+          </div>
+          <div class="card__body" style="padding:14px;">
+            <h3 class="card__title">Digital Literacy</h3>
+            <p class="card__text">Intro courses, device labs, and guided projects for first-time learners.</p>
+          </div>
+        </article>
+        <article class="card" style="border:1px solid rgba(255,255,255,0.18); border-radius: 12px; overflow: hidden; background:#fff;">
+          <div class="card__media" style="aspect-ratio:16/9; background:#f3f4f6;">
+            <img src="assets/images/career.jpg" alt="Career Support">
+          </div>
+          <div class="card__body" style="padding:14px;">
+            <h3 class="card__title">Career Support</h3>
+            <p class="card__text">CV clinics, interview prep, and industry connections with local partners.</p>
+          </div>
+        </article>
+        <article class="card" style="border:1px solid rgba(255,255,255,0.18); border-radius: 12px; overflow: hidden; background:#fff;">
+          <div class="card__media" style="aspect-ratio:16/9; background:#f3f4f6;">
+            <img src="assets/images/media.jpg" alt="Creative Media">
+          </div>
+          <div class="card__body" style="padding:14px;">
+            <h3 class="card__title">Creative Media</h3>
+            <p class="card__text">Storytelling, video, and design to amplify local voices.</p>
+          </div>
+        </article>
       </div>
     </div>
-  </main>
+  </section>
 
-  <footer class="footer">
-    © <span id="year"></span> Thusong Youth Centre • NPO Reg: 006-155-NPO
+  <!-- Same footer as Home -->
+  <footer class="footer" role="contentinfo">
+    <div class="container footer__grid">
+      <div class="footer__col"><h5>Programs</h5><a class="footer__link" href="programs.html">Digital Literacy</a><a class="footer__link" href="programs.html">Career Support</a><a class="footer__link" href="programs.html">Creative Media</a></div>
+      <div class="footer__col"><h5>About</h5><a class="footer__link" href="about.html">Mission</a><a class="footer__link" href="about.html">Team</a><a class="footer__link" href="about.html">Impact</a></div>
+      <div class="footer__col"><h5>Resources</h5><a class="footer__link" href="#">Curriculum</a><a class="footer__link" href="#">Toolkits</a><a class="footer__link" href="#">Reports</a></div>
+      <div class="footer__col"><h5>Connect</h5><a class="footer__link" href="contact.html">Contact</a><a class="footer__link" href="contact.html">Volunteer</a><a class="footer__link" href="donate.html">Donate</a></div>
+    </div>
+    <div class="container" style="margin-top:12px; color:#334155;">© 2025 Thusong Youth Centre. All rights reserved.</div>
   </footer>
 
   <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
+    /* Copy the same JS from index.html (dropdowns, drawer, particles init) */
   </script>
-  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
-  <script src="script.js"></script>
 </body>
 </html>
