@@ -7,10 +7,9 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- Particle background -->
   <div id="tsparticles"></div>
 
-  <!-- Header / Navigation -->
+  <!-- Shared header/nav -->
   <header class="header" role="banner">
     <div class="container nav" aria-label="Global navigation">
       <a href="index.html" class="nav__brand" aria-label="Thusong home">
@@ -18,54 +17,20 @@
         <span>Thusong Youth Centre</span>
       </a>
       <nav class="nav__links" role="navigation" aria-label="Primary">
-        <div class="menu" aria-expanded="false">
-          <button class="menu__button" aria-haspopup="true" aria-expanded="false" aria-controls="programs-panel">
-            Programs <span aria-hidden="true">▾</span>
-          </button>
-          <div id="programs-panel" class="menu__panel" role="menu">
-            <div class="menu__section">
-              <h4>Digital Literacy</h4>
-              <a class="menu__item" href="programs.html">Beginner courses</a>
-              <a class="menu__item" href="programs.html">Youth workshops</a>
-              <a class="menu__item" href="programs.html">Community labs</a>
-            </div>
-            <div class="menu__section">
-              <h4>Career Support</h4>
-              <a class="menu__item" href="programs.html">CV clinics</a>
-              <a class="menu__item" href="programs.html">Interview coaching</a>
-              <a class="menu__item" href="programs.html">Job fairs</a>
-            </div>
-            <div class="menu__section">
-              <h4>Creative Media</h4>
-              <a class="menu__item" href="programs.html">Video production</a>
-              <a class="menu__item" href="programs.html">Design sprints</a>
-              <a class="menu__item" href="programs.html">Community stories</a>
-            </div>
+        <div class="menu">
+          <button class="menu__button">Programs ▾</button>
+          <div class="menu__panel">
+            <div class="menu__section"><h4>Digital Literacy</h4><a class="menu__item" href="programs.html">Beginner courses</a><a class="menu__item" href="programs.html">Youth workshops</a><a class="menu__item" href="programs.html">Community labs</a></div>
+            <div class="menu__section"><h4>Career Support</h4><a class="menu__item" href="programs.html">CV clinics</a><a class="menu__item" href="programs.html">Interview coaching</a><a class="menu__item" href="programs.html">Job fairs</a></div>
+            <div class="menu__section"><h4>Creative Media</h4><a class="menu__item" href="programs.html">Video production</a><a class="menu__item" href="programs.html">Design sprints</a><a class="menu__item" href="programs.html">Community stories</a></div>
           </div>
         </div>
-        <div class="menu" aria-expanded="false">
-          <button class="menu__button" aria-haspopup="true" aria-expanded="false" aria-controls="about-panel">
-            About <span aria-hidden="true">▾</span>
-          </button>
-          <div id="about-panel" class="menu__panel" role="menu">
-            <div class="menu__section">
-              <h4>Who we are</h4>
-              <a class="menu__item" href="about.html">Mission</a>
-              <a class="menu__item" href="about.html">Team</a>
-              <a class="menu__item" href="about.html">Partners</a>
-            </div>
-            <div class="menu__section">
-              <h4>Impact</h4>
-              <a class="menu__item" href="about.html">Stories</a>
-              <a class="menu__item" href="about.html">Statistics</a>
-              <a class="menu__item" href="about.html">Reports</a>
-            </div>
-            <div class="menu__section">
-              <h4>Get involved</h4>
-              <a class="menu__item" href="donate.html">Donate</a>
-              <a class="menu__item" href="contact.html">Volunteer</a>
-              <a class="menu__item" href="contact.html">Sponsor</a>
-            </div>
+        <div class="menu">
+          <button class="menu__button">About ▾</button>
+          <div class="menu__panel">
+            <div class="menu__section"><h4>Who we are</h4><a class="menu__item" href="about.html">Mission</a><a class="menu__item" href="about.html">Team</a><a class="menu__item" href="about.html">Partners</a></div>
+            <div class="menu__section"><h4>Impact</h4><a class="menu__item" href="about.html">Stories</a><a class="menu__item" href="about.html">Statistics</a><a class="menu__item" href="about.html">Reports</a></div>
+            <div class="menu__section"><h4>Get involved</h4><a class="menu__item" href="donate.html">Donate</a><a class="menu__item" href="contact.html">Volunteer</a><a class="menu__item" href="contact.html">Sponsor</a></div>
           </div>
         </div>
         <a class="nav__link" href="index.html">Home</a>
@@ -74,38 +39,16 @@
         <a class="nav__link" href="contact.html">Contact</a>
         <a class="nav__link" href="donate.html">Donate</a>
       </nav>
-      <button class="nav__toggle" aria-controls="mobile-drawer" aria-expanded="false">Menu</button>
+      <button class="nav__toggle">Menu</button>
     </div>
-
-    <!-- Mobile drawer -->
-    <aside id="mobile-drawer" class="drawer" aria-hidden="true">
-      <div class="drawer__group">
-        <h4>Programs</h4>
-        <a class="drawer__link" href="programs.html">Digital Literacy</a>
-        <a class="drawer__link" href="programs.html">Career Support</a>
-        <a class="drawer__link" href="programs.html">Creative Media</a>
-      </div>
-      <div class="drawer__group">
-        <h4>About</h4>
-        <a class="drawer__link" href="about.html">Mission</a>
-        <a class="drawer__link" href="about.html">Team</a>
-        <a class="drawer__link" href="about.html">Impact</a>
-      </div>
-      <div class="drawer__group">
-        <h4>More</h4>
-        <a class="drawer__link" href="objectives.html">Objectives</a>
-        <a class="drawer__link" href="contact.html">Contact</a>
-        <a class="drawer__link" href="donate.html">Donate</a>
-      </div>
-    </aside>
   </header>
 
-  <!-- Page-specific content -->
+  <!-- Page content -->
   <section class="hero">
     <div class="container frost" style="padding:28px; border-radius:18px;">
       <h1>About Thusong Youth Centre</h1>
       <p>Thusong Youth Centre has been empowering young people in Johannesburg for over a decade. Our mission is to provide digital literacy, career support, and creative media opportunities that unlock pathways to education and employment.</p>
-      <p>We work with local partners, mentors, and organizations to ensure every program is community-led and impactful. Our approach is practical, inclusive, and focused on real outcomes.</p>
+      <p>We work with local partners, mentors, and organizations to ensure every program is community-led and impactful.</p>
       <h2>Impact highlights</h2>
       <ul>
         <li>120+ active members engaged across multiple programs.</li>
@@ -115,7 +58,7 @@
     </div>
   </section>
 
-  <!-- Footer -->
+  <!-- Shared footer -->
   <footer class="footer"> ... </footer>
 
   <!-- Shared JS -->
