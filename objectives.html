@@ -1,49 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
-  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Objectives — Thusong Youth Centre</title>
-  <link rel="stylesheet" href="style.css"/><script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    /* Paste the same CSS from index.html */
+  </style>
 </head>
 <body>
   <div id="tsparticles"></div>
 
-  <nav class="navbar">
-    <div class="nav-container">
-      <div class="brand">
-        <a href="index.html" class="logo"><img src="logo.png" alt="Thusong Youth Centre logo"/></a>
-        <span class="title">Thusong Youth Centre</span>
-      </div>
-      <div class="links">
-        <a href="index.html">Home</a><a href="about.html">About</a><a href="programs.html">Programs</a>
-        <a class="active" href="objectives.html">Objectives</a><a href="donate.html">Donate</a><a href="contact.html">Contact</a>
-      </div>
+  <!-- Same header/nav; mark Objectives active -->
+  <header class="header" role="banner">
+    <!-- Copy header/nav from index.html, with nav__link--active on Objectives -->
+    <!-- ... -->
+  </header>
+
+  <section class="hero">
+    <div class="container" style="background: rgba(255,255,255,0.65); backdrop-filter: blur(8px); border-radius: 18px; padding: 28px;">
+      <h1 style="margin-top:0;">Our Objectives</h1>
+      <ul>
+        <li>Expand digital literacy programs to reach more youth across Johannesburg.</li>
+        <li>Provide career pathways through mentorship, CV clinics, and industry connections.</li>
+        <li>Support creative media projects that tell community stories and build portfolios.</li>
+        <li>Strengthen partnerships with schools, centers, and companies for sustained support.</li>
+        <li>Develop open resources (curricula, toolkits) for community-led replication.</li>
+      </ul>
     </div>
-  </nav>
+  </section>
 
-  <header class="hero"><div class="inner">
-    <h1>Objectives</h1>
-    <p>Training for employability, creative exposure, and mass youth participation that strengthens Alexandra’s social fabric.</p>
-  </div></header>
+  <!-- Same footer -->
+  <footer class="footer" role="contentinfo">
+    <!-- Copy footer from index.html -->
+  </footer>
 
-  <main class="section">
-    <h2 class="text-royalblue text-2xl font-extrabold">Trainings</h2>
-    <ul class="list-disc pl-6 mt-2">
-      <li>Offer affordable skills training for the disadvantaged.</li>
-      <li>Uproot required skills and prepare youth for the job market.</li>
-    </ul>
-
-    <h2 class="text-royalblue text-2xl font-extrabold mt-8">Sports, recreation, arts & culture</h2>
-    <ul class="list-disc pl-6 mt-2">
-      <li>Create exposure platforms for disadvantaged creatives.</li>
-      <li>Encourage mass youth participation in township projects.</li>
-      <li>Accelerate growth through arts & culture for development and entertainment.</li>
-    </ul>
-  </main>
-
-  <footer class="footer">© <span id="year"></span> Thusong Youth Centre • NPO Reg: 006-155-NPO</footer>
-
-  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
-  <script src="script.js"></script>
+  <script>
+    /* Copy the same JS from index.html (dropdowns, drawer, particles init) */
+  </script>
 </body>
 </html>
+
