@@ -1,71 +1,40 @@
-// DOM ready
-document.addEventListener("DOMContentLoaded", () => {
-  // Footer year
-  document.querySelectorAll("#year").forEach(el => {
-    el.textContent = new Date().getFullYear();
-    document.addEventListener("DOMContentLoaded", () => {
-  const hexagons = document.querySelectorAll('.hexagon-slideshow .hexagon');
-  let current = 0;
+const qs  = (s, r=document) => r.querySelector(s);
+const qsa = (s, r=document) => Array.from(r.querySelectorAll(s));
 
-  function showHexagon(n) {
-    hexagons.forEach((hex, i) => {
-      hex.classList.toggle('active', i === n);
-    });
-  }
-
-  function nextHexagon() {
-    current = (current + 1) % hexagons.length;
-    showHexagon(current);
-  }
-
-  showHexagon(current); // Show first hexagon
-
-  setInterval(nextHexagon, 3000); // Change slide every 3 seconds
-});
-  });
-
-  // Particles background (rainbow theme)
-  if (window.tsParticles) {
-    tsParticles.load("tsparticles", {
-      background: { color: "transparent" },
-      particles: {
-        number: { value: 90, density: { enable: true, area: 800 } },
-        size: { value: 2.5 },
-        move: { enable: true, speed: 1.4, outModes: { default: "out" } },
-        color: { value: ["#FF0000","#FF7F00","#FFFF00","#00FF00","#0000FF","#4B0082","#8B00FF"] },
-        links: { enable: false },
-        shape: { type: "circle" },
-        opacity: { value: 0.9, random: { enable: true, minimumValue: 0.5 } }
-      },
-      interactivity: {
-        events: {
-          onhover: { enable: true, mode: "repulse" },
-          onclick: { enable: true, mode: "push" },
-          resize: true
-        },
-        modes: {
-          repulse: { distance: 100, duration: 0.3 },
-          push: { quantity: 4 }
-        }
-      },
-      detectRetina: true
-    });
-  }
+// Dropdown menus
+qsa('.menu').forEach(menu => {
+  const btn = qs('.menu__button', menu);
+  const panel = qs('.menu__panel', menu);
+  function open() { menu.setAttribute('aria-expanded', 'true'); btn.setAttribute('aria-expanded', 'true'); }
+  function close(){ menu.setAttribute('aria-expanded', 'false'); btn.setAttribute('aria-expanded', 'false'); }
+  function toggle(){ (menu.getAttribute('aria-expanded') === 'true') ? close() : open(); }
+  btn.addEventListener('click', toggle);
+  document.addEventListener('click', (e) => { if (!menu.contains(e.target)) close(); });
 });
 
-// Copy donation details (Donate page)
-function copyBankDetails() {
-  const details = `Bank: First National Bank (FNB)
-Account holder: Thusong Youth Centre
-Account no: 50300065915
-Account type: Cheque
-Branch code: 250655`;
+// Mobile drawer
+const toggle = qs('.nav__toggle');
+const drawer = qs('#mobile-drawer');
+toggle?.addEventListener('click', () => {
+  const open = drawer.classList.toggle('drawer--open');
+  toggle.setAttribute('aria-expanded', String(open));
+  drawer.setAttribute('aria-hidden', String(!open));
+});
 
-  navigator.clipboard.writeText(details).then(() => {
-    const msg = document.getElementById("copyMsg");
-    if (msg) {
-      msg.classList.add("show");
-      setTimeout(() => msg.classList.remove("show"), 2200);
-    }
-  });
+// Hero carousel (only on Home)
+const slides = qs('#hero-slides');
+if (slides) {
+  const dots = qsa('.dot');
+  let idx = 0, timer;
+  function go(i) { idx = i; slides.style.transform = `translateX(-${i * 100}%)`; dots.forEach((d, n) => d.classList.toggle('dot--active', n === i)); }
+  function next() { go((idx + 1) % dots.length); }
+  function play() { timer = setInterval(next, 5000); }
+  function pause() { clearInterval(timer); }
+  dots.forEach((dot, i) => dot.addEventListener('click', () => { pause(); go(i); play(); }));
+  qs('.hero__wrap').addEventListener('mouseenter', pause);
+  qs('.hero__wrap').addEventListener('mouseleave', play);
+  play();
 }
+
+// Particles init — add your tsParticles config here
+// tsParticles.load("tsparticles", { /* config */ });
